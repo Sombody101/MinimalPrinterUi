@@ -94,10 +94,10 @@
                 </select>
             </div>
 
-            <div class="video-wrapper">
-                @if (_selectedCamera is not null)
-                {
-                    switch (_selectedCamera.ServiceType)
+            @if (_selectedCamera is not null)
+            {
+                <div class="video-wrapper" @key="_selectedCamera.Name">
+                    @switch (_selectedCamera.ServiceType)
                     {
                         case "mjpegstreamer":
                             <img class="video-content" src="@SelectedCameraUrl">
@@ -106,12 +106,14 @@
                             <iframe class="video-content" src="@SelectedCameraUrl" allowfullscreen></iframe>
                             break;
                     }
-                }
-                else
-                {
+                </div>
+            }
+            else
+            {
+                <div class="video-wrapper">
                     <p class="error-text">Failed to load camera</p>
-                }
-            </div>
+                </div>
+            }
         </div>
     }
 </div>
