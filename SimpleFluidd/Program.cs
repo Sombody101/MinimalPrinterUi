@@ -14,6 +14,11 @@ public static class Program
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "ASP0011:Suggest using builder.Logging over Host.ConfigureLogging or WebHost.ConfigureLogging", Justification = "It doesn't work otherwise.")]
     public static void Main(string[] args)
     {
+#if DEBUG
+        // Docker refuses to accept my compose variables.
+        Environment.SetEnvironmentVariable("PRINTER_HOSTNAME", "lilbastard.lan");
+#endif
+
         var builder = WebApplication.CreateBuilder(args);
 
         builder.Configuration.AddEnvironmentVariables();
