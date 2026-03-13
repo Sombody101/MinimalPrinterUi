@@ -1,0 +1,6 @@
+services:
+  simplefluidd:
+    image: ${DOCKER_REGISTRY-}simplefluidd
+    build:
+      context: .
+      dockerfile: SimpleFluidd/Dockerfile

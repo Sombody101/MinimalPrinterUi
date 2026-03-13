@@ -1,0 +1,9 @@
+services:
+  simplefluidd:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - PRINTER_HOSTNAME=lilbastard.lan
+    ports:
+      - "9000:8080"
+      - "7125:7125"
