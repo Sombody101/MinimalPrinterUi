@@ -19,5 +19,5 @@ public sealed class ContainerConfig
     public int RefreshCooldownSeconds { get; init; } = 5;
 
     [EnvironmentVar("LOG_LEVEL")]
-    public LogLevel LogLevel { get; init; }
+    public LogLevel LogLevel { get; init; } = LogLevel.Information;
 }
